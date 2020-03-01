@@ -16,7 +16,7 @@ public class DoctorApplication extends Application {
 
     private void initSDK() {
 
-        HHSDKOptions options = new HHSDKOptions("9002"); //productId是视频医生提供方分配的产品Id
+        HHSDKOptions options = new HHSDKOptions("3001"); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
         HHDoctor.init(getApplicationContext(), options);
