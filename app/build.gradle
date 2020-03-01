@@ -11,7 +11,9 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def sdk_version = "2.2.4"
+def sdk_version = "2.5.4.03011355"
+
+def demo_version = "1.0.5"
 
 android {
     compileSdkVersion 27
@@ -20,20 +22,19 @@ android {
         minSdkVersion 17
         targetSdkVersion 27
         versionCode increasedVersionCode()
-        versionName "1.0.4.${buildTime()}"
+        versionName "$demo_version.${buildTime()}"
 
         ndk {
             //设置支持的SO库架构
             abiFilters "armeabi-v7a"
         }
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
+        configurations {
+            all*.exclude group: 'com.android.support', module: 'support-v4'
+//            all*.exclude group: 'com.android.support', module: 'support-annotations'
+        }
 
-    packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libsecsdk.so'
-        pickFirst 'lib/arm64-v8a/libsecsdk.so'
-        pickFirst 'lib/armeabi/libsecsdk.so'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -75,8 +76,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
-    implementation "com.hhmedic.android.sdk:hh:2.4.4.120214"
-    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
+    implementation "com.hhmedic.android.sdk:hh:$sdk_version"
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

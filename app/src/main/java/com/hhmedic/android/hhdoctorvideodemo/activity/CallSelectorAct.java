@@ -68,7 +68,6 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.medicine_demo:
-                medicineDemo();
                 break;
                 default:
                     break;
@@ -237,11 +236,6 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         String url = HHDoctor.getMedicDetailUrl(this, LocalConfig.getLoginedToken(this), orderId);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档详情");
-        startActivity(intent);
-    }
-
-    private void medicineDemo() {
-        Intent intent = new Intent(this, MedicineDemo.class);
         startActivity(intent);
     }
 }

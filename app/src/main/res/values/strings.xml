@@ -6,6 +6,7 @@
     <string name="tip_is_in_develop">当前为测试环境</string>
     <string name="login_button">登录</string>
     <string name="use_default_token">使用默认登录token</string>
+    <string name="use_call_by_token">使用特定token呼叫</string>
     <string name="logout_button">登出</string>
     <string name="call_adult">呼叫成人医生</string>
     <string name="call_child">呼叫儿童医生</string>

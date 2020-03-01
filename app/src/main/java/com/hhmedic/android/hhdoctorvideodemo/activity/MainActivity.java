@@ -13,7 +13,9 @@ import android.widget.Toast;
 import com.hhmedic.android.sdk.HHDoctor;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
+import com.hhmedic.android.sdk.listener.HHCallListener;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
+import com.hhmedic.android.sdk.module.common.CallType;
 import com.yanzhenjie.permission.AndPermission;
 
 public class MainActivity extends BaseActivity {
@@ -49,6 +51,8 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.use_default_toke).setOnClickListener(v -> {
             mUserTokenEdit.setText(LocalConfig.DefaultUserToken);
         });
+
+        findViewById(R.id.use_token_call).setOnClickListener(v -> directCall());
     }
 
     private void login() {
@@ -95,6 +99,62 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+    private void directCall() {
+        String userToken = mUserTokenEdit.getText().toString(); //这个ID是和和缓对接之后得到的和缓的UserToken
+        if (userToken.isEmpty()) {
+            Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        HHDoctor.callByToken(this, CallType.all, userToken, new HHCallListener() {
+
+            @Override
+            public void onStart(String s) {
+
+            }
+
+            @Override
+            public void onCalling() {
+
+            }
+
+            @Override
+            public void onInTheCall() {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCallSuccess() {
+
+            }
+
+            @Override
+            public void onFail(int i) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onLineUpTimeout() {
+
+            }
+
+            @Override
+            public void onLineUp() {
+
+            }
+        });
+    }
+
 
     /**
      * 跳转选择呼叫类型界面
