@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onError(String s) {
-                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
             }
         });
     }

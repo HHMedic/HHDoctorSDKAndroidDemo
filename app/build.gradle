@@ -11,9 +11,9 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def sdk_version = "2.5.4.03011601"
+def sdk_version = "2.5.8.05071050"
 
-def demo_version = "1.0.6"
+def demo_version = "1.0.8"
 
 android {
     compileSdkVersion 27
