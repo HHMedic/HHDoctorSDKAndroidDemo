@@ -67,6 +67,12 @@
         <activity
             android:name=".activity.ViewDetailAct"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ViewDetailAct"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".activity.MultiVideoAct" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
